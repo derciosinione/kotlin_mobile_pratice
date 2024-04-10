@@ -12,6 +12,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.ClickableText
@@ -48,6 +49,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val names = listOf("Dercio", "Sinione", "Dernardo", "Domingos")
+    val lazyNames: List<String> = List(40) { "$it" }
     
     Column {
         Text(
@@ -74,6 +76,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         LazyRow {
             items(names){
                 name -> Text(text = name, modifier = modifier.padding(40.dp))
+            }
+        }
+
+        LazyColumn {
+            items(lazyNames){
+                name -> Text(text = name, modifier = modifier.padding(30.dp))
             }
         }
 
